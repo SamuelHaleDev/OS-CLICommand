@@ -3,8 +3,8 @@
 #include "date.h"
 int main(int argc, char *argv[])
 {
-  struct rtcdate r; // date.h contains this data structure
-  if (date(&r)) { // I believe this is a function we have to define as it is not contained in any of the header files
+  struct rtcdate *r = malloc(sizeof(struct rtcdate)); // date.h contains this data structure
+  if (date((void *)r)) { // I believe this is a function we have to define as it is not contained in any of the header files
     printf(2, "date failed\n");
     exit();
   }

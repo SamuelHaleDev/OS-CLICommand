@@ -7,6 +7,7 @@
 #include "mmu.h"
 #include "proc.h"
 
+
 int
 sys_fork(void)
 {
@@ -95,4 +96,8 @@ int
 sys_date(void)
 {
   /*IMPLEMENTATION HERE*/
+  // Retrieve our rtcdate struct as an argument
+  struct rtcdate *r;
+  argptr(0 , (void*)&r ,sizeof(*r));
+  return date((void *)r); // send it to date to handle the time
 }
